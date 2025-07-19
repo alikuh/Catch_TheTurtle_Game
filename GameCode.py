@@ -1,19 +1,17 @@
 import turtle
 import random
+import winsound
 
 # PENCERE ÖZELLİKLERİ
 pencere = turtle.Screen()
-pencere.bgcolor("blue")
 pencere.setup(width=860, height=600)
 pencere.title("Turtle Game")
 pencere.tracer(5)
 
-
-
 # oyuncu özellikleri
 oyuncu = turtle.Turtle()
 oyuncu.pencolor("red")
-oyuncu.color("white")
+oyuncu.color("gray")
 oyuncu.shape("triangle")
 oyuncu.shapesize(2)
 oyuncu.penup()
@@ -35,7 +33,6 @@ for _ in range(2):
     panel.right(90)
 panel.end_fill()
 panel.penup()
-
 
 def kenar_ciz():
     kenar = turtle.Turtle()
@@ -69,7 +66,6 @@ def kenar_ciz():
     kenar.goto(420, -290)
 kenar_ciz()
 
-
 # SKOR SAYACI
 skor = 0
 yazi = turtle.Turtle()
@@ -96,8 +92,6 @@ yazi3.penup()
 yazi3.color("red")
 yazi3.goto(300, 260)
 yazi3.write(f"CAN : {can} ", font=("Arial", 24, "bold"))
-
-
 
 # HEDEF KAPLUMBAĞALAR
 turtle_list=[]
@@ -130,10 +124,10 @@ def oyuncu_right():
     oyuncu.setheading(oyuncu.heading() - 30)
 def oyuncu_speed_up():
     global speed
-    speed += 1
+    speed += 2
 def oyuncu_speed_down():
     global speed
-    speed -= 1
+    speed -= 2
 def oyuncu_stop():
     global speed
     speed = 0
@@ -155,10 +149,12 @@ def game_over():
 def oyuncu_go():
     oyuncu.forward(speed)
     if oyuncu.xcor() > 420 or oyuncu.xcor() < -420:
+        winsound.PlaySound("dead_sound.wav", winsound.SND_ASYNC)
         return_home()
         new_speed()
         can_sayim()
     if oyuncu.ycor() > 250 or oyuncu.ycor() < -290:
+        winsound.PlaySound("dead_sound.wav", winsound.SND_ASYNC)
         return_home()
         new_speed()
         can_sayim()
@@ -193,36 +189,33 @@ def carpma_kontrolu():
         if oyuncu.distance(hedef) < 30 :
             skor += 1
             yazi.clear()
+            winsound.PlaySound("yeme_sesi.wav",winsound.SND_ASYNC)
             yazi.write(f"SKOR :{skor} ", font=("Arial", 24, "bold"))
             hedef.setposition(random.randint(-400, 400), random.randint(-300, 300))
             hedef.setheading(random.randint(0, 360))
     pencere.ontimer(carpma_kontrolu,100)
 
-
 def start():
     oyuncu.showturtle()
     start_screen.clear()
-    pencere.bgcolor("blue")
+    pencere.bgcolor("pink")
     oyuncu_go()
     geri_sayim()
     hedef_hareket_ettir()
 
 # BAŞLANGIÇ EKRANI
-pencere.bgcolor("black")
+pencere.bgcolor("gray")
 start_screen = turtle.Turtle()
-start_screen.color("white")
 start_screen.penup()
 start_screen.hideturtle()
-start_screen.pencolor("white")
-start_screen.goto(-400,-100)
-start_screen.write("OYUN KONTROLLERİ \n \n"
-                   "SAĞ ve SOL TUŞLARI İLE YÖN VER\n"
+start_screen.pencolor("black")
+start_screen.goto(-400,-90)
+start_screen.write("SAĞ ve SOL TUŞLARI İLE YÖN VER\n"
                    "Q ile HIZLAN\n"
                    "E ile YAVAŞLA\n"
                    "SPACE ile DUR\n\n"
                    f"HAZIRSAN ENTER'e BAS VE 80 SANİYEDE \nCANLARINI BİTİRMEDEN YAPABİLECEĞİN\nEN İYİ SKORU YAP",
                    font=("Arial",27,"bold"))
-
 
 turtle.listen()
 turtle.onkey(oyuncu_left, "Left")
@@ -231,8 +224,6 @@ turtle.onkey(oyuncu_speed_up, "q")
 turtle.onkey(oyuncu_speed_down, "e")
 turtle.onkey(oyuncu_stop, "space")
 turtle.onkey(start,"Return")
-
-
 
 carpma_kontrolu()
 turtle.done()
