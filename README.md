@@ -58,8 +58,11 @@ Süre bittiğinde veya canlar biterse oyun sona erer.
 bash
 Kopyala
 Düzenle
+
 TurtleGame/
+
 │
+
 ├── turtle_game.py         # Ana oyun dosyası
 
 ├── yeme_sesi.wav          # Skor alındığında çalan ses
