@@ -89,3 +89,16 @@ python turtle_game.py
 Bu oyun, Python öğrenme sürecinde turtle, random, winsound gibi kütüphaneleri kullanarak eğlenceli bir proje geliştirme fikriyle oluşturulmuştur.
 
 Her türlü katkıya ve geri bildirime açığım! 🙌
+
+📌 Geliştirme Fikirleri (İleri Seviye)
+Bu oyunu daha da geliştirmek istersen:
+
+✅ Yüksek skor kayıt sistemi (dosyaya yazdırarak)
+
+✅ Ana menü ve ayarlar ekranı
+
+✅ Zorluk seviyesi (daha hızlı hedefler)
+
+✅ Mobil destek (Tkinter + Turtle birlikte)
+
+✅ Çok oyunculu mod (aynı klavyede)
