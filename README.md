@@ -17,7 +17,7 @@
 ⌨️ Klavye kontrolleri ile tam etkileşimli oynanış
 
 📷 Oyun Ekranı
-![Oyun Ekranı](Oyun_ekrani.png)
+![Oyun Ekranı](Oyun_ekranı.png)
 
 🕹️ Nasıl Oynanır?
 Oyunu başlattıktan sonra hedef kaplumbağalara çarparak en yüksek skoru elde etmeye çalışın.
