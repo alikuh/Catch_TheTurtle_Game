@@ -61,9 +61,13 @@ Düzenle
 TurtleGame/
 │
 ├── turtle_game.py         # Ana oyun dosyası
+
 ├── yeme_sesi.wav          # Skor alındığında çalan ses
+
 ├── dead_sound.wav         # Kenara çarpıldığında çalan ses
+
 └── README.md              # Bu dosya
+
 Not: Oyun Windows için yazılmıştır ve winsound modülü kullanıldığı için diğer işletim sistemlerinde ses çalışmayabilir.
 
 🔧 Gereksinimler
